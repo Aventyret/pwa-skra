@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWA</title>
+
+  <link rel="manifest" href="/manifest.json">
+  <script>
+    navigator.serviceWorker.register('/service-worker.js', {
+      scope: '/'
+    });
+  </script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      App
+    </header>
+    <main>
+      <header>
+        <h1>Entries</h1>
+      </header>
+
+      <form id="entriesForm" action="/api/entries/add" method="post">
+        <label>
+          <input type="text" name="content">
+        </label>
+        <button type="submit">
+          Save
+        </button>
+      </form>
+
+      <button id="entriesRefresh" type="button">
+        Refresh
+      </button>
+
+      <div id="entriesList">
+        <!-- Entries-->
+      </div>
+    </main>
+  </div>
+</body>
+</html>
